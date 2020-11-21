@@ -5,10 +5,12 @@ from .models import Pokemon, Species
 # Register your models here.
 
 class PokemonAdmin(admin.ModelAdmin):
-    list_display = ('name', 'species', 'level', 'trainer')
+    list_display = ('name', 'species', 'level', 'trainer', 'evolve')
+        
+    def evolve(self, obj):
+        if obj.level >= 18 and obj.level <= 32:
+            print(obj.species.name)
 
-    # if level >= 18 and level <= 32:
-    #     print('ivysaur')
 
 
 admin.site.register(Pokemon, PokemonAdmin)
