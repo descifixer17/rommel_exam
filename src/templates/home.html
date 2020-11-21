@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+        <h1>Welcome to Pokemon Wiki</h1>
+        <h2>Trainers : </h2>
+        <ul>
+            {% for trainer in trainers %}
+                <li>{{ trainer }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Pokemons : </h2>
+        <table>
+            <tr style='text-align: left;'>
+                <th>name</th>
+                <th>species</th>
+                <th>level</th>
+                <th>owner</th>
+            </tr>
+            {% for pokemon in pokemons %}
+            <tr>
+                <td>{{ pokemon.name }}</td>
+                <td>{{ pokemon.species.name }}</td>
+                <td>{{ pokemon.level }}</td>
+                <td>{{ pokemon.trainer }}</td>
+            </tr>
+            {% endfor%}
+          </table>
+</body>
+</html>
